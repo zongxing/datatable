@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script><br />
+		
+		<script>
+			$(document).ready(function(){
+				$("#b1").click(function(){
+					$.ajax({
+						type:"post",
+						url:"JsonServlet",
+						async:true,
+						data:"{'username':'mashensoft','password':'123abc'}",
+						dataType:"json",
+						contentType : 'application/json;charset=UTF-8'
+					});
+				})
+			})
+			
+		</script>
+	</head>
+
+	<body>
+		<button id="b1">发起请求</button>
+	</body>
+
+</html>

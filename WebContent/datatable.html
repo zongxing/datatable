@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" />
+		<script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+		<script>
+			$(document).ready(function() {
+			$('#example').DataTable({
+				"ajax": {
+					"url": "DataServlet",
+					"type": "POST",
+					"data":function(pdata){
+						return JSON.stringify(pdata);
+					}
+				},
+				"serverSide": true,
+				"pageLength": 1,
+				"lengthMenu": [1, 2, 5, 10, 20],
+				"dataType": "json",
+				processData: false,
+				contentType: 'application/json;charset=UTF-8',
+				"columns": [{
+					"data": "name"
+				}, {
+					"data": "age"
+				}, {
+					"data": "office"
+				}, {
+					"data": "address"
+				}, {
+					"data": "date"
+				}, {
+					"data": "salary"
+				}] 
+			});
+			});
+		</script>
+	</head>
+
+	<body>
+		<table id="example" class="display" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Position</th>
+					<th>Office</th>
+					<th>Extn.</th>
+					<th>Start date</th>
+					<th>Salary</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th>Name</th>
+					<th>Position</th>
+					<th>Office</th>
+					<th>Extn.</th>
+					<th>Start date</th>
+					<th>Salary</th>
+				</tr>
+			</tfoot>
+		</table>
+
+	</body>
+
+</html>
